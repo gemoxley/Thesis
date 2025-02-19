@@ -1,0 +1,16 @@
+body {
+    background-color:#FDECEF;
+}
+h1 {
+    color: #F6AE2D;
+    margin-left: 20px;
+    font-size: 300px;
+}
+h2 {
+    color: #F3722E;
+    margin-left: 20px;
+}
+button{
+    color: #D64933;
+    margin-left: 20px;
+}
