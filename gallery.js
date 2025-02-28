@@ -1,8 +1,10 @@
 let frameImages = [];
 let contentImages = [];
 let frames = [];
-let scrollSpeed = 1;
+let scrollSpeed = 2.5;
 let gap = 50;
+let lastFrameImg = null;
+let lastContentImg = null;
 
 function preload() {
   frameImages.push(loadImage('images/frame-1.png'));
@@ -11,13 +13,12 @@ function preload() {
   frameImages.push(loadImage('images/frame-4.png'));
   frameImages.push(loadImage('images/frame-5.png'));
   frameImages.push(loadImage('images/frame-6.png'));
-  contentImages.push(loadImage('images/Somatometric-Chart-Bone-Lengths.png'));
+  contentImages.push(loadImage('images/Heart.png'));
   contentImages.push(loadImage('images/Sacrum.png'));
   contentImages.push(loadImage('images/Lungs.png'));
   contentImages.push(loadImage('images/Pelvis-Baby.png'));
   contentImages.push(loadImage('images/Torso-Bones.png'));
-  contentImages.push(loadImage('images/Placeholder.png'));
-
+  contentImages.push(loadImage('images/Somatometric-Chart-Bone-Lengths.png'));
   console.log('Frame images loaded:', frameImages);
   console.log('Content images loaded:', contentImages);
 }
@@ -29,7 +30,7 @@ function setup() {
   shuffleArray(frameImages);
   shuffleArray(contentImages);
   let x = 0;
-  while (x < width + 300) {
+  while (x < width) {
     addNewFrame(x);
     x += frames[frames.length - 1].w + gap;
   }
@@ -40,7 +41,6 @@ function draw() {
   for (let i = frames.length - 1; i >= 0; i--) {
     frames[i].update();
     frames[i].display();
-
     if (frames[i].isOffScreen()) {
       frames.splice(i, 1);
       let lastFrame = frames.length > 0 ? frames[frames.length - 1] : null;
@@ -51,10 +51,17 @@ function draw() {
 }
 
 function addNewFrame(x) {
-  let frameImg = random(frameImages);
-  let contentImg = random(contentImages);
-  let frameWidth = random(200, 400);
+  let frameImg, contentImg;
+  do {
+    frameImg = random(frameImages);
+  } while (frameImg === lastFrameImg);
+  lastFrameImg = frameImg;
+  do {
+    contentImg = random(contentImages);
+  } while (contentImg === lastContentImg);
+  lastContentImg = contentImg;
   let frameHeight = height;
+  let frameWidth = (frameHeight * frameImg.width) / frameImg.height;
   let imgWidth = frameWidth;
   let imgHeight = (frameWidth * contentImg.height) / contentImg.width;
   if (imgHeight > frameHeight) {
@@ -76,18 +83,23 @@ class ImageFrame {
     this.imgWidth = imgWidth;
     this.imgHeight = imgHeight;
   }
+
   update() {
     this.x -= scrollSpeed;
   }
+
   display() {
     if (this.contentImg && this.frameImg) {
       let contentX = this.x + (this.w - this.imgWidth) / 2;
       let contentY = this.y + (this.h - this.imgHeight) / 2;
       image(this.contentImg, contentX, contentY, this.imgWidth, this.imgHeight);
+
       image(this.frameImg, this.x, this.y, this.w, this.h);
+
       console.log('Frame displayed at:', this.x, this.y, 'with size:', this.w, this.h);
     }
   }
+
   isOffScreen() {
     return this.x + this.w < 0;
   }
