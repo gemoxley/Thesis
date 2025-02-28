@@ -1,25 +1,26 @@
 let images = [];
 let frames = [];
 let scrollSpeed = 2;
-let frameWidth = 200;
-let frameHeight = 200;
+let frameWidth, frameHeight;
 let gap = 20;
 
 function preload() {
-  images.push(loadImage('images/frame1.png'));
-  images.push(loadImage('images/frame2.png'));
-  images.push(loadImage('images/frame3.png'));
-  images.push(loadImage('images/frame4.png'));
-  images.push(loadImage('images/frame5.png'));
-  images.push(loadImage('images/frame6.png'));
+  images.push(loadImage('images/frame-1.png'));
+  images.push(loadImage('images/frame-2.png'));
+  images.push(loadImage('images/frame-3.png'));
+  images.push(loadImage('images/frame-4.png'));
+  images.push(loadImage('images/frame-5.png'));
+  images.push(loadImage('images/frame-6.png'));
 }
 
 function setup() {
   const canvas = createCanvas(windowWidth, windowHeight);
   canvas.parent('canvas-container');
+  frameWidth = width / 4;
+  frameHeight = height;
   for (let x = 0; x < width + frameWidth; x += frameWidth + gap) {
     let img = random(images);
-    frames.push(new ImageFrame(x, height / 2 - frameHeight / 2, frameWidth, frameHeight, img));
+    frames.push(new ImageFrame(x, 0, frameWidth, frameHeight, img)); // Start at y = 0
   }
 }
 
@@ -32,7 +33,7 @@ function draw() {
     if (frames[i].isOffScreen()) {
       frames.splice(i, 1);
       let img = random(images);
-      frames.push(new ImageFrame(width, height / 2 - frameHeight / 2, frameWidth, frameHeight, img));
+      frames.push(new ImageFrame(width, 0, frameWidth, frameHeight, img)); // Start at y = 0
     }
   }
 }
@@ -63,4 +64,6 @@ class ImageFrame {
 
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
+  frameWidth = width/2;
+  frameHeight = height;
 }
