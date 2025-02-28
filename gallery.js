@@ -15,7 +15,8 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
+  const canvas = createCanvas(windowWidth, windowHeight);
+  canvas.parent('canvas-container');
   for (let x = 0; x < width + frameWidth; x += frameWidth + gap) {
     let img = random(images);
     frames.push(new ImageFrame(x, height / 2 - frameHeight / 2, frameWidth, frameHeight, img));
@@ -27,6 +28,7 @@ function draw() {
   for (let i = frames.length - 1; i >= 0; i--) {
     frames[i].update();
     frames[i].display();
+
     if (frames[i].isOffScreen()) {
       frames.splice(i, 1);
       let img = random(images);
@@ -43,21 +45,17 @@ class ImageFrame {
     this.h = h;
     this.img = img;
   }
-
   update() {
     this.x -= scrollSpeed;
   }
-
   display() {
     stroke(0);
     noFill();
     rect(this.x, this.y, this.w, this.h);
-
     if (this.img) {
       image(this.img, this.x, this.y, this.w, this.h);
     }
   }
-
   isOffScreen() {
     return this.x + this.w < 0;
   }
