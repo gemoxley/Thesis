@@ -6,11 +6,12 @@ let frameHeight = 200;
 let gap = 20;
 
 function preload() {
-  images.push(loadImage('images/image1.jpg'));
-  images.push(loadImage('images/image2.jpg'));
-  images.push(loadImage('images/image3.jpg'));
-  images.push(loadImage('images/image4.jpg'));
-  images.push(loadImage('images/image5.jpg'));
+  images.push(loadImage('images/frame1.png'));
+  images.push(loadImage('images/frame2.png'));
+  images.push(loadImage('images/frame3.png'));
+  images.push(loadImage('images/frame4.png'));
+  images.push(loadImage('images/frame5.png'));
+  images.push(loadImage('images/frame6.png'));
 }
 
 function setup() {
@@ -26,7 +27,6 @@ function draw() {
   for (let i = frames.length - 1; i >= 0; i--) {
     frames[i].update();
     frames[i].display();
-
     if (frames[i].isOffScreen()) {
       frames.splice(i, 1);
       let img = random(images);
