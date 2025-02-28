@@ -83,23 +83,48 @@ class ImageFrame {
     this.imgWidth = imgWidth;
     this.imgHeight = imgHeight;
   }
-
   update() {
     this.x -= scrollSpeed;
   }
-
   display() {
     if (this.contentImg && this.frameImg) {
       let contentX = this.x + (this.w - this.imgWidth) / 2;
       let contentY = this.y + (this.h - this.imgHeight) / 2;
       image(this.contentImg, contentX, contentY, this.imgWidth, this.imgHeight);
-
       image(this.frameImg, this.x, this.y, this.w, this.h);
-
       console.log('Frame displayed at:', this.x, this.y, 'with size:', this.w, this.h);
+      class ImageFrame {
+        constructor(x, y, w, h, frameImg, contentImg, imgWidth, imgHeight) {
+          this.x = x;
+          this.y = y;
+          this.w = w;
+          this.h = h;
+          this.frameImg = frameImg;
+          this.contentImg = contentImg;
+          this.imgWidth = imgWidth;
+          this.imgHeight = imgHeight;
+        }
+        update() {
+          this.x -= scrollSpeed;
+        }
+        display() {
+          if (this.contentImg && this.frameImg) {
+            let contentX = this.x + (this.w - this.imgWidth) / 2;
+            let contentY = this.y + (this.h - this.imgHeight) / 2;
+            push();
+            noStroke();
+            rect(this.x, this.y, this.w, this.h);
+            image(this.contentImg, contentX, contentY, this.imgWidth, this.imgHeight);
+            pop();
+            image(this.frameImg, this.x, this.y, this.w, this.h);
+          }
+        }
+        isOffScreen() {
+          return this.x + this.w < -preloadOffset;
+        }
+      }      
     }
   }
-
   isOffScreen() {
     return this.x + this.w < 0;
   }
