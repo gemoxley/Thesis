@@ -1,8 +1,8 @@
 let images = [];
 let frames = [];
-let scrollSpeed = 2;
+let scrollSpeed = 1;
 let frameWidth, frameHeight;
-let gap = 20;
+let gap = 50;
 
 function preload() {
   images.push(loadImage('images/frame-1.png'));
@@ -20,7 +20,7 @@ function setup() {
   frameHeight = height;
   for (let x = 0; x < width + frameWidth; x += frameWidth + gap) {
     let img = random(images);
-    frames.push(new ImageFrame(x, 0, frameWidth, frameHeight, img)); // Start at y = 0
+    frames.push(new ImageFrame(x, 0, frameWidth, frameHeight, img));
   }
 }
 
@@ -33,7 +33,7 @@ function draw() {
     if (frames[i].isOffScreen()) {
       frames.splice(i, 1);
       let img = random(images);
-      frames.push(new ImageFrame(width, 0, frameWidth, frameHeight, img)); // Start at y = 0
+      frames.push(new ImageFrame(width, 0, frameWidth, frameHeight, img));
     }
   }
 }
@@ -45,16 +45,21 @@ class ImageFrame {
     this.w = w;
     this.h = h;
     this.img = img;
+    this.imgWidth = w;
+    this.imgHeight = (w * img.height) / img.width;
+    if (this.imgHeight > h) {
+      this.imgHeight = h;
+      this.imgWidth = (h * img.width) / img.height;
+    }
   }
   update() {
     this.x -= scrollSpeed;
   }
   display() {
-    stroke(0);
-    noFill();
-    rect(this.x, this.y, this.w, this.h);
     if (this.img) {
-      image(this.img, this.x, this.y, this.w, this.h);
+      let imgX = this.x + (this.w - this.imgWidth) / 2;
+      let imgY = this.y + (this.h - this.imgHeight) / 2;
+      image(this.img, imgX, imgY, this.imgWidth, this.imgHeight);
     }
   }
   isOffScreen() {
@@ -64,6 +69,6 @@ class ImageFrame {
 
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
-  frameWidth = width/2;
+  frameWidth = width / 2;
   frameHeight = height;
 }
