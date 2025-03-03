@@ -9,19 +9,51 @@ body, html {
   #canvas-container {
     position: fixed;
     top: 0;
-    left: 0;
-    width: 100vw;
     height: 100vh;
+    width: 50vw;
+    left: 0;
     z-index: -1;
-    background: #f0f0f0;
+    color: lime;
+  }
+  
+  #second-canvas-container {
+    left: 50vw;
+    z-index: -1;
+    color: aqua;
   }
   
   header {
     position: relative;
     z-index: 2;
     background-color: rgba(255, 255, 255, 0.9);
-    padding: 20px;
+    padding: 5px 20px;
     text-align: center;
+    transition: height 0.3s ease;
+  }
+  
+  .header-content {
+    transition: opacity 0.3s ease;
+  }
+  
+  .toggle-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 3;
+    color: black;
+  }
+  
+  header.minimized {
+    height: 5px;
+  }
+  
+  header.minimized .header-content {
+    opacity: 0;
+    pointer-events: none;
   }
   
   footer {
@@ -61,19 +93,5 @@ body, html {
     font-size: 16px;
     cursor: pointer;
     border-radius: 5px;
-    z-index: 2;
-  }
-  
-  button:hover {
-    background-color: #45a049;
-  }
-  
-  .p5_loading {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 20px;
-    color: #000;
     z-index: 2;
   }
