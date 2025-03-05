@@ -15,7 +15,7 @@ function preload() {
   frameImages.push(loadImage('images/frame-6.png'));
   contentImages.push(loadImage('images/Intestinal-Diagram.png'));
   contentImages.push(loadImage('images/Sympathetic-Man.png'));
-  contentImages.push(loadImage('images/Lungs.png'));
+  contentImages.push(loadImage('images/Hand-Radiograph.png'));
   contentImages.push(loadImage('images/Pelvis-Baby.png'));
   contentImages.push(loadImage('images/Torso-Bones.png'));
   contentImages.push(loadImage('images/Somatometric-Chart-Bone-Lengths.png'));
