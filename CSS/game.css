@@ -1,97 +1,54 @@
-body, html {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-  }
-  
-  #canvas-container {
-    position: fixed;
-    top: 0;
-    height: 100vh;
-    width: 50vw;
-    left: 0;
-    z-index: -1;
-    color: lime;
-  }
-  
-  #second-canvas-container {
-    left: 50vw;
-    z-index: -1;
-    color: aqua;
-  }
-  
-  header {
-    position: relative;
-    z-index: 2;
-    background-color: rgba(255, 255, 255, 0.9);
-    padding: 5px 20px;
-    text-align: center;
-    transition: height 0.3s ease;
-  }
-  
-  .header-content {
-    transition: opacity 0.3s ease;
-  }
-  
-  .toggle-button {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: none;
-    border: none;
-    font-size: 20px;
-    cursor: pointer;
-    z-index: 3;
-    color: black;
-  }
-  
-  header.minimized {
-    height: 5px;
-  }
-  
-  header.minimized .header-content {
-    opacity: 0;
-    pointer-events: none;
-  }
-  
-  footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    z-index: 2;
-    background-color: rgba(255, 255, 255, 0.9);
-    padding: 20px;
-    text-align: center;
-  }
-  
-  h1 {
-    color: #F6AE2D;
-    font-size: 50px;
-    text-align: center;
-  }
-  
-  h2 {
-    color: #F3722E;
-    text-align: center;
-  }
-  
-  .button-container {
-    text-align: center;
-    margin-top: 20px;
-    z-index: 2;
-  }
-  
-  button {
-    background-color: #D64933;
-    border: none;
-    color: white;
-    padding: 10px 20px;
-    text-align: center;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
-    z-index: 2;
-  }
+body {
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+#canvas-container {
+  width: 90%;
+  height: calc(100vh - 180px);
+  margin: 20px auto;
+  position: relative;
+  border: 1px solid #ddd;
+}
+
+header {
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 10px 20px;
+  text-align: center;
+  position: relative;
+}
+
+footer {
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 10px;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+h1 {
+  color: #F6AE2D;
+  font-size: 2.5em;
+}
+
+button {
+  background-color: #D64933;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.toggle-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 1.5em;
+  cursor: pointer;
+}
