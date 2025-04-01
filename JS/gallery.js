@@ -143,7 +143,7 @@ function windowResized() {
   console.log('Canvas resized to:', windowWidth, windowHeight);
   frames = [];
   let x = 0;
-  while (x < width + 300) {
+  while (x < width) {
     addNewFrame(x);
     x += frames[frames.length - 1].w + gap;
   }
