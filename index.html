@@ -4,12 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.8.0/p5.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.8.0/addons/p5.sound.min.js"></script>
   <title>Skin Deep - Welcome</title>
   <link rel="stylesheet" href="CSS/thesis.css">
 </head>
 <body>
-  <div id="canvas-container"></div>
   <header>
     <h1>
       Skin Deep
@@ -18,13 +16,18 @@
       An Exploration of Bodies and their Constructions
     </p>
   </header>
+  <div id="gallery-viewport">
+    <div id="canvas-container"></div>
+  </div>
   <div class="button-container">
     <button onclick="location.href='table.html'">
       Begin Dissection
     </button>
   </div>
   <footer>
-    <p>Created by Gray Moxley</p>
+    <p>
+      Created by Gray Moxley
+    </p>
   </footer>
   <script src="JS/gallery.js"></script>
 </body>
