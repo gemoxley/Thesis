@@ -77,8 +77,51 @@ h1 {
 }
 
 h2 {
+  color: rgba(67, 62, 63, 1);
+  font-size: 1.8em;
+  z-index: 2;
   font-family: 'Daruma-Drop';
   src: url('../assets/Daruma-Drop.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+h3 {
+  color: rgba(67, 62, 63, 1);
+  font-size: 1.8em;
+  z-index: 2;
+  font-family: 'AntiStroke';
+  src: url('../assets/AntiStroke.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+h4 {
+  color: rgba(67, 62, 63, 1);
+  font-size: 1.8em;
+  z-index: 2;
+  font-family: 'Gravestone';
+  src: url('../assets/Gravestone.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+h5 {
+  color: rgba(67, 62, 63, 1);
+  font-size: 1.8em;
+  z-index: 2;
+  font-family: 'Nighty';
+  src: url('../assets/Nighty.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+h6 {
+  color: rgba(67, 62, 63, 1);
+  font-size: 1.8em;
+  z-index: 2;
+  font-family: 'Medieval-Sharp';
+  src: url('../assets/Medieval-Sharp.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
@@ -135,6 +178,27 @@ button:hover {
 @font-face {
   font-family: 'Daruma-Drop';
   src: url('../assets/Daruma-Drop.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'AntiStroke';
+  src: url('../assets/AntiStroke.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gravestone';
+  src: url('../assets/Gravestone.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Nighty';
+  src: url('../assets/Nighty.otf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
