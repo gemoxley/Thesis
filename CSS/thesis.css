@@ -10,7 +10,7 @@ html, body {
 header {
   background: 
     url('../images/Upper-Molar.svg') repeat-x,
-    rgba(255, 255, 255, 0.9);
+    rgba(255, 255, 255, 0.2);
   background-size: auto 100px;
   background-position: bottom;
   position: relative;
@@ -18,6 +18,7 @@ header {
   height: 80px;
   text-align: center;
   box-sizing: border-box;
+  z-index: 0;
 }
 
 header::after {
@@ -27,13 +28,13 @@ header::after {
   left: 0;
   right: 0;
   height: 20px;
-  background: linear-gradient(to bottom, rgba(255,255,255,1), rgba(255,255,255,0));
+  z-index: 0;
 }
 
 footer {
   background: 
-    url('../images/Lower-Molar.svg') repeat-x bottom,
-    rgba(255, 255, 255, 0.9);
+    url('../images/Lower-Molar.svg') repeat-x,
+    rgba(255, 255, 255, 1);
   background-size: auto 100px;
   position: fixed;
   bottom: 0;
@@ -41,6 +42,7 @@ footer {
   height: 50px;
   padding: 10px 0;
   text-align: center;
+  z-index: 0;
 }
 
 footer::before {
@@ -50,7 +52,7 @@ footer::before {
   left: 0;
   right: 0;
   height: 20px;
-  background: linear-gradient(to top, rgba(255,255,255,1), rgba(255,255,255,0));
+  z-index: 0;
 }
 
 header h1, 
@@ -58,11 +60,11 @@ header p,
 footer p {
   position: relative;
   z-index: 1;
-  background-color: rgba(255, 255, 255, 0.7);
   display: inline-block;
   padding: 0.5rem 1rem;
   border-radius: 4px;
   margin: 0;
+  background-color: rgba(255, 255, 255, 0.9);
 }
 
 h1 {
@@ -73,7 +75,7 @@ h1 {
 #gallery-viewport {
   position: relative;
   width: 100vw;
-  height: calc(100vh - 200px);
+  height: calc(100vh - 130px);
   overflow: hidden;
 }
 
@@ -108,4 +110,18 @@ button {
 
 button:hover {
   background-color: #C23A28;
+}
+
+@font-face {
+  font-family: 'Hellspire';
+  src: url('../assets/Hellspire.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Medieval-Sharp';
+  src: url('../assets/Medieval-Sharp.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
