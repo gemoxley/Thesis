@@ -5,7 +5,7 @@ let draggingPart = null;
 let offsetX, offsetY;
 
 function preload() {
-    images.heads = [loadImage('images/Colors.png')]; 
+    images.heads = [loadImage('images/Skull.png')]; 
     images.ribcages = [loadImage('images/Ribcage.png')];
     images.hips = [loadImage('images/Sacrum.png')];
     images.leftArms = [loadImage('images/Muscle-Left-Arm.png')];
