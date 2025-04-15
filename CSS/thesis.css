@@ -3,7 +3,6 @@ html, body {
   padding: 0;
   width: 100%;
   height: 100%;
-  font-family: Arial, sans-serif;
   overflow: hidden;
 }
 
@@ -70,58 +69,8 @@ h1 {
   color: #F6AE2D;
   font-size: 10em;
   z-index: 2;
-  font-family: 'Hellspire';
-  src: url('../assets/Hellspire.otf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-
-h2 {
-  color: rgba(67, 62, 63, 1);
-  font-size: 1.8em;
-  z-index: 2;
-  font-family: 'Daruma-Drop';
-  src: url('../assets/Daruma-Drop.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-
-h3 {
-  color: rgba(67, 62, 63, 1);
-  font-size: 1.8em;
-  z-index: 2;
-  font-family: 'AntiStroke';
-  src: url('../assets/AntiStroke.otf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-
-h4 {
-  color: rgba(67, 62, 63, 1);
-  font-size: 1.8em;
-  z-index: 2;
-  font-family: 'Gravestone';
-  src: url('../assets/Gravestone.otf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-
-h5 {
-  color: rgba(67, 62, 63, 1);
-  font-size: 1.8em;
-  z-index: 2;
-  font-family: 'Nighty';
-  src: url('../assets/Nighty.otf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-
-h6 {
-  color: rgba(67, 62, 63, 1);
-  font-size: 1.8em;
-  z-index: 2;
-  font-family: 'Medieval-Sharp';
-  src: url('../assets/Medieval-Sharp.ttf') format('truetype');
+  font-family: 'Orsay';
+  src: url('../assets/Orsay.otf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
@@ -129,8 +78,8 @@ h6 {
 p {
   color: #F6AE2D;
   font-size: 1em;
-  font-family: 'Medieval-Sharp';
-  src: url('../assets/Medieval-Sharp.ttf') format('truetype');
+  font-family: 'OrticaAngular-Bold';
+  src: url('../assets/OrticaAngular-Bold.otf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
@@ -151,8 +100,8 @@ button {
   transition: background-color 0.3s;
   font-size: 2rem;
   text-align: center;
-  font-family: 'Medieval-Sharp';
-  src: url('../assets/Medieval-Sharp.ttf') format('truetype');
+  font-family: 'OrticaAngular-Bold';
+  src: url('../assets/OrticaAngular-Bold.otf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
@@ -162,43 +111,15 @@ button:hover {
 }
 
 @font-face {
-  font-family: 'Hellspire';
-  src: url('../assets/Hellspire.otf') format('truetype');
+  font-family: 'OrticaAngular-Bold';
+  src: url('../assets/OrticaAngular-Bold.otf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Medieval-Sharp';
-  src: url('../assets/Medieval-Sharp.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Daruma-Drop';
-  src: url('../assets/Daruma-Drop.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'AntiStroke';
-  src: url('../assets/AntiStroke.otf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Gravestone';
-  src: url('../assets/Gravestone.otf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Nighty';
-  src: url('../assets/Nighty.otf') format('truetype');
+  font-family: 'Orsay';
+  src: url('../assets/Orsay.otf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
