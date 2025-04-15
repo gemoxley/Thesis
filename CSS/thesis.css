@@ -69,9 +69,9 @@ h1 {
   color: #F6AE2D;
   font-size: 10em;
   z-index: 2;
-  font-family: 'Orsay';
-  src: url('../assets/Orsay.otf') format('truetype');
-  font-weight: Bold;
+  font-family: 'TheNightWatch';
+  src: url('../assets/TheNightWatch.ttf') format('truetype');
+  font-weight: normal;
   font-style: normal;
 }
 
@@ -80,7 +80,7 @@ p {
   font-size: 1em;
   font-family: 'OrticaAngular-Bold';
   src: url('../assets/OrticaAngular-Bold.otf') format('truetype');
-  font-weight: normal;
+  font-weight: bold;
   font-style: normal;
 }
 
@@ -118,8 +118,8 @@ button:hover {
 }
 
 @font-face {
-  font-family: 'Orsay';
-  src: url('../assets/Orsay.otf') format('truetype');
+  font-family: 'TheNightWatch';
+  src: url('../assets/TheNightWatch.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
