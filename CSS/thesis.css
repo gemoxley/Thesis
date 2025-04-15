@@ -71,7 +71,7 @@ h1 {
   z-index: 2;
   font-family: 'Orsay';
   src: url('../assets/Orsay.otf') format('truetype');
-  font-weight: normal;
+  font-weight: Bold;
   font-style: normal;
 }
 
