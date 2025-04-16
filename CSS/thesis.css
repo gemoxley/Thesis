@@ -26,6 +26,12 @@ html, body {
   -webkit-overflow-scrolling: touch;
 }
 
+#head-text {
+position: cnter;
+text-align: center;
+z-index: 2;
+}
+
 header {
   background: 
   url('../images/Upper-Molar.svg') repeat-x,
