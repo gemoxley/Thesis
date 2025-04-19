@@ -131,34 +131,4 @@ class Frame {
     this.width = w;
     this.height = h;
     this.frameImg = frameImg;
-    this.contentImg = contentImg;
-    this.contentWidth = contentW;
-    this.contentHeight = contentH;
-    this.padding = padding;
-  }
-  update() {
-    this.x -= SCROLL_SPEED;
-  }
-  display() {
-    const contentX = this.x + (this.width - this.contentWidth) / 2;
-    const contentY = this.y + (this.height - this.contentHeight) / 2;
-    image(this.contentImg, contentX, contentY, this.contentWidth, this.contentHeight);
-    image(this.frameImg, this.x, this.y, this.width, this.height);
-  }
-}
-
-function shuffleArrays() {
-  shuffleArray(frameImages);
-  shuffleArray(contentImages);
-}
-
-function shuffleArray(array) {
-  for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
-  }
-}
-
-function windowResized() {
-  resizeCanvas(windowWidth, FRAME_HEIGHT * ROWS);
-}
+    this.con
