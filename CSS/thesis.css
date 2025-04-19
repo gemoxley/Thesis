@@ -129,4 +129,6 @@ button:hover {
 @font-face {
   font-family: 'TheNightWatch';
   src: url('../assets/TheNightWatch.ttf') format('truetype');
-  font-weig
+  font-weight: normal;
+  font-style: normal;
+}
