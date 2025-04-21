@@ -23,6 +23,8 @@ function preload() {
     'Muscogee-Shell-Carving.jpg',
     'Torben-Friedrich-Anatomy-Pelvis.jpg',
     'Teeth.jpg',
+    'Leg-Lithograph-Albrecht-Von-Haller.png',
+    'Legs-Jacob-Benard-1831.jpg',
     'Copperplate-Engraving-Henry-Mutlow.png',
   ];
   contentFiles.forEach(file => {
@@ -188,6 +190,8 @@ class Frame {
       'Muscogee-Shell-Carving.jpg':     'SHELL CARVING\nNative American Artifact',
       'Torben-Friedrich-Anatomy-Pelvis.jpg': 'PELVIC ANATOMY\nContemporary Medical Art',
       'Teeth.jpg':                      'DENTAL ANATOMY\nTooth Structure',
+      'Leg-Lithograph-Albrecht-Von-Haller.png':'LEGS\nLegs',
+      'Legs-Jacob-Benard-1831.jpg': 'LEGS\nLegs',
       'Copperplate-Engraving-Henry-Mutlow.png': 'ANATOMICAL ENGRAVING\n19th Century Print'
     };
     return descriptions[filename] || 'HISTORICAL ANATOMICAL\nILLUSTRATION';
