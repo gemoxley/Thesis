@@ -193,18 +193,18 @@ class Frame {
       'Ribs-Pelvis-Diagram.png':'British Copperplate Engraving\nJean-Joseph Sue, c. 1824',
       'Somatometric-Chart-Bone-Lengths.png':'Woodblock Illustration\nThe Maijing Tuzhu, c. Qing Dynasty',
       'Muscogee-Shell-Carving.jpg':'Mvskoke Creation Carving\nChris Thompson, c. 2018',
-      'Torben-Friedrich-Anatomy-Pelvis.jpg':'PELVIC ANATOMY\nContemporary Medical Art',
-      'Teeth.jpg':'DENTAL ANATOMY\nTooth Structure',
-      'Leg-Lithograph-Albrecht-Von-Haller.png':'LEGS\nLegs',
-      'Legs-Jacob-Benard-1831.jpg': 'LEGS\nLegs',
-      'Copperplate-Engraving-Henry-Mutlow.png': 'ANATOMICAL ENGRAVING\n19th Century Print',
-      'Dagari-Figure-Burkina-Faso.jpg':'BASKET\nNnnnn',
-      'Tassili-nAjjer.jpg':'BASKET\nNnnnn',
-      'Bacchus-Mosaic.jpg':'BASKET\nNnnnn',
-      'Traditional-Viet-Medicine.jpg':'BASKET\nNnnnn',
-      'Visayans-Phillipines.png':'BASKET\nNnnnn',
+      'Torben-Friedrich-Anatomy-Pelvis.jpg':'Five Figures of the Pelvis\nNicolas Henri Jacob, c. 1854',
+      'Teeth.jpg':'Primer on Dental Hygiene\nCalvin Cutter, c. 1849',
+      'Leg-Lithograph-Albrecht-Von-Haller.png':'Homeopathic Nerve Research\nAlbrecht von Haller, c. 1757',
+      'Legs-Jacob-Benard-1831.jpg': 'Fascia of the Lower Leg\nJacob Bernard, c. 1831',
+      'Copperplate-Engraving-Henry-Mutlow.png': 'Dictionary of Natural History\nMartin St. Ange, c. 1849',
+      'Dagari-Figure-Burkina-Faso.jpg':'Burkina-Faso Statue\nDagari Craftspeople, c. 17th century',
+      'Tassili-nAjjer.jpg':'Algerian Rock Paintings\nNomadic Peoples, c. 10,000 BCE',
+      'Bacchus-Mosaic.jpg':'Mosaic Honoring the God of Wine\nRoman tile-layers, c. 3rd Century',
+      'Traditional-Viet-Medicine.jpg':'Book of Traditional Acupuncture\nVietnamese Doctors, c. ',
+      'Visayans-Phillipines.png':'Showcasing Batok Tattoos\nChinese Artist (Unknown), c. 1590',
     };
-    return descriptions[filename] || 'HISTORICAL ANATOMICAL\nILLUSTRATION';
+    return descriptions[filename] || 'How Do You View\nYour Own Body?';
   }  
 }
 function getRandomUnique(imageArray, previousImage) {
