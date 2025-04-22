@@ -22,10 +22,15 @@ function preload() {
     'Somatometric-Chart-Bone-Lengths.png',
     'Muscogee-Shell-Carving.jpg',
     'Torben-Friedrich-Anatomy-Pelvis.jpg',
+    'Bacchus-Mosaic.jpg',
+    'Dagari-Figure-Burkina-Faso.jpg',
     'Teeth.jpg',
+    'Tassili-nAjjer.jpg',
     'Leg-Lithograph-Albrecht-Von-Haller.png',
     'Legs-Jacob-Benard-1831.jpg',
     'Copperplate-Engraving-Henry-Mutlow.png',
+    'Visayans-Phillipines.png',
+    'Traditional-Viet-Medicine.jpg',
   ];
   contentFiles.forEach(file => {
     const img = loadImage(`images/${file}`);
@@ -180,19 +185,24 @@ class Frame {
   getImageDescription() {
     const filename = this.contentImg._filename;
     const descriptions = {
-      'Intestinal-Diagram.png':        'INTESTINAL DIAGRAM\n19th Century Medical',
-      'Sympathetic-Man.png':            'SYMPATHETIC NERVOUS SYSTEM\nAnatomical Chart',
-      'Hand-Radiograph.png':            'HAND RADIOGRAPH\nEarly X Ray Imaging',
-      'Kaishi-Hen-Ribs.png':            'RIBCAGE STUDY\nJapanese Anatomy',
-      'Arm-Muscle-Ecorche.png':         'ARM MUSCLES\nFlayed Anatomy Study',
-      'Ribs-Pelvis-Diagram.png':        'SKELETAL STRUCTURE\nBone Anatomy',
-      'Somatometric-Chart-Bone-Lengths.png': 'BONE MEASUREMENTS\nAnthropological Study',
-      'Muscogee-Shell-Carving.jpg':     'SHELL CARVING\nNative American Artifact',
-      'Torben-Friedrich-Anatomy-Pelvis.jpg': 'PELVIC ANATOMY\nContemporary Medical Art',
-      'Teeth.jpg':                      'DENTAL ANATOMY\nTooth Structure',
+      'Intestinal-Diagram.png':'Persian Medical Chart\nMansur ibn Ilyas, c. 1390',
+      'Sympathetic-Man.png':'The Sympathetic Man\nEdwin Hartley Pratt, c. 1901',
+      'Hand-Radiograph.png':'Bones of the Wrist and Hand\nDr. Claude Gouldesbrough, c. 1913',
+      'Kaishi-Hen-Ribs.png':'Notes on the Dissection of Cadavers\nShukuya Aoki, c. 1772',
+      'Arm-Muscle-Ecorche.png':'Lithograph of a Flayed Arm\nCostantino Squanquerillo, c. 1839',
+      'Ribs-Pelvis-Diagram.png':'British Copperplate Engraving\nJean-Joseph Sue, c. 1824',
+      'Somatometric-Chart-Bone-Lengths.png':'Woodblock Illustration\nThe Maijing Tuzhu, c. Qing Dynasty',
+      'Muscogee-Shell-Carving.jpg':'Mvskoke Creation Carving\nChris Thompson, c. 2018',
+      'Torben-Friedrich-Anatomy-Pelvis.jpg':'PELVIC ANATOMY\nContemporary Medical Art',
+      'Teeth.jpg':'DENTAL ANATOMY\nTooth Structure',
       'Leg-Lithograph-Albrecht-Von-Haller.png':'LEGS\nLegs',
       'Legs-Jacob-Benard-1831.jpg': 'LEGS\nLegs',
-      'Copperplate-Engraving-Henry-Mutlow.png': 'ANATOMICAL ENGRAVING\n19th Century Print'
+      'Copperplate-Engraving-Henry-Mutlow.png': 'ANATOMICAL ENGRAVING\n19th Century Print',
+      'Dagari-Figure-Burkina-Faso.jpg':'BASKET\nNnnnn',
+      'Tassili-nAjjer.jpg':'BASKET\nNnnnn',
+      'Bacchus-Mosaic.jpg':'BASKET\nNnnnn',
+      'Traditional-Viet-Medicine.jpg':'BASKET\nNnnnn',
+      'Visayans-Phillipines.png':'BASKET\nNnnnn',
     };
     return descriptions[filename] || 'HISTORICAL ANATOMICAL\nILLUSTRATION';
   }  

@@ -4,15 +4,34 @@ let images = {};
 let draggingPart = null;
 let offsetX, offsetY;
 const SNAP_DISTANCE = 50;
-
 function preload() {
-    images.heads = [loadImage('images/Copperplate-Skull.png')]; 
-    images.ribcages = [loadImage('images/Ribcage.png')];
-    images.hips = [loadImage('images/Sacrum.png')];
-    images.leftArms = [loadImage('images/Muscle-Left-Arm.png')];
-    images.rightArms = [loadImage('images/Muscle-Right-Arm.png')];
-    images.leftLegs = [loadImage('images/Muscle-Left-Leg.png')];
-    images.rightLegs = [loadImage('images/Muscle-Right-Leg.png')];
+    images.heads = [
+        loadImage('images/Copperplate-Skull.png'),
+        loadImage('images/Dagari-Skull.png')
+    ];
+    images.ribcages = [
+        loadImage('images/Ribcage.png')
+    ];
+    images.hips = [
+        loadImage('images/Sacrum.png')
+    ];
+    images.leftArms = [
+        loadImage('images/Muscle-Left-Arm.png'),
+        loadImage('images/Turkish-Mosaic-Left-Arm.png')
+    ];
+    images.rightArms = [
+        loadImage('images/Muscle-Right-Arm.png'),
+        loadImage('images/Mvskoke-Right-Arm.png'),
+        loadImage('images/Viet-Medicine-Right-Arm.png')
+    ];
+    images.leftLegs = [
+        loadImage('images/Muscle-Left-Leg.png'),
+        loadImage('images/Visayans-Left-Leg.png')
+    ];
+    images.rightLegs = [
+        loadImage('images/Muscle-Right-Leg.png'),
+        loadImage('images/Algeria-Right-Leg.png')
+    ];
 }
 function setup() {
     const container = document.getElementById('canvas-container');
@@ -45,32 +64,27 @@ function mouseReleased() {
     if (draggingPart) {
         draggingPart.x = mouseX + offsetX;
         draggingPart.y = mouseY + offsetY;
-
         if (monster.trySnap(draggingPart)) {
             detachedParts = detachedParts.filter(p => p !== draggingPart);
         }
-
         draggingPart = null;
     }
 }
-
 function windowResized() {
     const container = document.getElementById('canvas-container');
     resizeCanvas(container.offsetWidth, container.offsetHeight);
 }
-
 class Monster {
     constructor() {
         const centerX = width / 2;
         const centerY = height / 2;
-
-        this.hips = new BodyPart(centerX, centerY, images.hips[0], 'hips');
-        this.ribcage = new BodyPart(centerX, centerY - this.hips.h / 2 - 10, images.ribcages[0], 'ribcage', this.hips, 1.1);
-        this.head = new BodyPart(centerX, this.ribcage.y - this.ribcage.h / 2 - 10, images.heads[0], 'head', this.ribcage, 0.6);
-        this.leftArm = new BodyPart(this.ribcage.x - this.ribcage.w / 2 - 20, this.ribcage.y, images.leftArms[0], 'leftArm', this.ribcage, 0.5);
-        this.rightArm = new BodyPart(this.ribcage.x + this.ribcage.w / 2 + 20, this.ribcage.y, images.rightArms[0], 'rightArm', this.ribcage, 0.5);
-        this.leftLeg = new BodyPart(this.hips.x - this.hips.w / 4, this.hips.y + this.hips.h / 2 + 20, images.leftLegs[0], 'leftLeg', this.hips, 0.6);
-        this.rightLeg = new BodyPart(this.hips.x + this.hips.w / 4, this.hips.y + this.hips.h / 2 + 20, images.rightLegs[0], 'rightLeg', this.hips, 0.6);
+        this.hips = new BodyPart(centerX, centerY, random(images.hips), 'hips');
+        this.ribcage = new BodyPart(centerX, centerY - this.hips.h / 2 - 10, random(images.ribcages), 'ribcage', this.hips, 1.1);
+        this.head = new BodyPart(centerX, this.ribcage.y - this.ribcage.h / 2 - 10, random(images.heads), 'head', this.ribcage, 0.6);
+        this.leftArm = new BodyPart(this.ribcage.x - this.ribcage.w / 2 - 20, this.ribcage.y, random(images.leftArms), 'leftArm', this.ribcage, 0.5);
+        this.rightArm = new BodyPart(this.ribcage.x + this.ribcage.w / 2 + 20, this.ribcage.y, random(images.rightArms), 'rightArm', this.ribcage, 0.5);
+        this.leftLeg = new BodyPart(this.hips.x - this.hips.w / 4, this.hips.y + this.hips.h / 2 + 20, random(images.leftLegs), 'leftLeg', this.hips, 0.6);
+        this.rightLeg = new BodyPart(this.hips.x + this.hips.w / 4, this.hips.y + this.hips.h / 2 + 20, random(images.rightLegs), 'rightLeg', this.hips, 0.6);
         this.parts = [
             this.head,
             this.ribcage,
