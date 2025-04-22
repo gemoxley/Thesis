@@ -147,4 +147,18 @@ class BodyPart {
     }
     calculateScaleFactor() {
         const maxDimension = max(this.img.width, this.img.height);
-      
+        return (this.baseSize / maxDimension) * (min(width, height) / 800);
+    }
+    setSnapPosition(x, y) {
+        this.snapX = x;
+        this.snapY = y;
+    }
+    display(x = this.x, y = this.y) {
+        imageMode(CENTER);
+        image(this.img, x, y, this.w, this.h);
+    }
+    isClicked(px, py) {
+        return px > this.x - this.w / 2 && px < this.x + this.w / 2 &&
+               py > this.y - this.h / 2 && py < this.y + this.h / 2;
+    }
+}
