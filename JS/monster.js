@@ -9,12 +9,8 @@ function preload() {
         loadImage('images/Copperplate-Skull.png'),
         loadImage('images/Dagari-Skull.png')
     ];
-    images.ribcages = [
-        loadImage('images/Ribcage.png')
-    ];
-    images.hips = [
-        loadImage('images/Sacrum.png')
-    ];
+    images.ribcages = [loadImage('images/Ribcage.png')];
+    images.hips = [loadImage('images/Sacrum.png')];
     images.leftArms = [
         loadImage('images/Muscle-Left-Arm.png'),
         loadImage('images/Turkish-Mosaic-Left-Arm.png')
@@ -36,7 +32,14 @@ function preload() {
 function setup() {
     const container = document.getElementById('canvas-container');
     let canvas = createCanvas(container.offsetWidth, container.offsetHeight);
-    canvas.parent('canvas-container');
+    canvas.parent(container);
+    const buttonContainer = select('#monster-button-bar');
+    createButton('Randomize Whole Monster').parent(buttonContainer).mousePressed(() => monster = new Monster());
+    createButton('Randomize Head').parent(buttonContainer).mousePressed(() => monster.randomizePart('head'));
+    createButton('Randomize Torso').parent(buttonContainer).mousePressed(() => monster.randomizePart('ribcage'));
+    createButton('Randomize Hips').parent(buttonContainer).mousePressed(() => monster.randomizePart('hips'));
+    createButton('Randomize Arms').parent(buttonContainer).mousePressed(() => monster.randomizePart('arms'));
+    createButton('Randomize Legs').parent(buttonContainer).mousePressed(() => monster.randomizePart('legs'));
     monster = new Monster();
 }
 function draw() {
@@ -85,23 +88,18 @@ class Monster {
         this.rightArm = new BodyPart(this.ribcage.x + this.ribcage.w / 2 + 20, this.ribcage.y, random(images.rightArms), 'rightArm', this.ribcage, 0.5);
         this.leftLeg = new BodyPart(this.hips.x - this.hips.w / 4, this.hips.y + this.hips.h / 2 + 20, random(images.leftLegs), 'leftLeg', this.hips, 0.6);
         this.rightLeg = new BodyPart(this.hips.x + this.hips.w / 4, this.hips.y + this.hips.h / 2 + 20, random(images.rightLegs), 'rightLeg', this.hips, 0.6);
+
         this.parts = [
-            this.head,
-            this.ribcage,
-            this.hips,
-            this.leftArm,
-            this.rightArm,
-            this.leftLeg,
-            this.rightLeg
+            this.head, this.ribcage, this.hips,
+            this.leftArm, this.rightArm,
+            this.leftLeg, this.rightLeg
         ];
         for (let part of this.parts) {
             part.setSnapPosition(part.x, part.y);
         }
     }
     show() {
-        for (let part of this.parts) {
-            part.display();
-        }
+        for (let part of this.parts) part.display();
     }
     checkClick() {
         for (let i = this.parts.length - 1; i >= 0; i--) {
@@ -115,9 +113,7 @@ class Monster {
     }
     trySnap(part) {
         for (let i = 0; i < this.parts.length; i++) {
-            if (this.parts[i].type === part.type) {
-                return false;
-            }
+            if (this.parts[i].type === part.type) return false;
         }
         if (dist(part.x, part.y, part.snapX, part.snapY) < SNAP_DISTANCE) {
             part.x = part.snapX;
@@ -127,6 +123,48 @@ class Monster {
             return true;
         }
         return false;
+    }
+    randomizePart(type) {
+        if (type === 'head') {
+            this.head = new BodyPart(this.ribcage.x, this.ribcage.y - this.ribcage.h / 2 - 10, random(images.heads), 'head', this.ribcage, 0.6);
+            this.head.setSnapPosition(this.head.x, this.head.y);
+            this.replacePart(this.head);
+        } else if (type === 'ribcage') {
+            this.ribcage = new BodyPart(this.hips.x, this.hips.y - this.hips.h / 2 - 10, random(images.ribcages), 'ribcage', this.hips, 1.1);
+            this.ribcage.setSnapPosition(this.ribcage.x, this.ribcage.y);
+            this.replacePart(this.ribcage);
+            this.randomizePart('head');
+            this.randomizePart('arms');
+        } else if (type === 'hips') {
+            this.hips = new BodyPart(width / 2, height / 2, random(images.hips), 'hips');
+            this.hips.setSnapPosition(this.hips.x, this.hips.y);
+            this.replacePart(this.hips);
+            this.randomizePart('ribcage');
+            this.randomizePart('legs');
+        } else if (type === 'arms') {
+            this.leftArm = new BodyPart(this.ribcage.x - this.ribcage.w / 2 - 20, this.ribcage.y, random(images.leftArms), 'leftArm', this.ribcage, 0.5);
+            this.rightArm = new BodyPart(this.ribcage.x + this.ribcage.w / 2 + 20, this.ribcage.y, random(images.rightArms), 'rightArm', this.ribcage, 0.5);
+            this.leftArm.setSnapPosition(this.leftArm.x, this.leftArm.y);
+            this.rightArm.setSnapPosition(this.rightArm.x, this.rightArm.y);
+            this.replacePart(this.leftArm);
+            this.replacePart(this.rightArm);
+        } else if (type === 'legs') {
+            this.leftLeg = new BodyPart(this.hips.x - this.hips.w / 4, this.hips.y + this.hips.h / 2 + 20, random(images.leftLegs), 'leftLeg', this.hips, 0.6);
+            this.rightLeg = new BodyPart(this.hips.x + this.hips.w / 4, this.hips.y + this.hips.h / 2 + 20, random(images.rightLegs), 'rightLeg', this.hips, 0.6);
+            this.leftLeg.setSnapPosition(this.leftLeg.x, this.leftLeg.y);
+            this.rightLeg.setSnapPosition(this.rightLeg.x, this.rightLeg.y);
+            this.replacePart(this.leftLeg);
+            this.replacePart(this.rightLeg);
+        }
+    }
+    replacePart(newPart) {
+        for (let i = 0; i < this.parts.length; i++) {
+            if (this.parts[i].type === newPart.type) {
+                this.parts[i] = newPart;
+                return;
+            }
+        }
+        this.parts.push(newPart);
     }
 }
 class BodyPart {
